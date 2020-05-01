@@ -95,7 +95,7 @@ provide the outfile as an additional argument if desired
 
 ### in the browser
 
-Check the [demo](https://josepedrodias.github.io/parenthood/demo.html).
+Check the [demo](https://josepedrodias.github.io/parenthood/public/demo.html).
 You need to focus outside the text area to refresh the diagram.  
 Using [viz.js](http://viz-js.com/) here.
 Think of this as a hack to allow you to experiment, nothing fancy...

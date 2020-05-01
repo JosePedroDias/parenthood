@@ -17,6 +17,39 @@ export function processPplString(s) {
   return relationshipsToDot(pplStringToRelationships(s));
 }
 
+export function handleWhitespaceAndComment(line) {
+  let data = line.trim();
+  const indexOfHash = data.indexOf('#');
+  if (indexOfHash !== -1) {
+    data = data.substring(0, indexOfHash).trim();
+  }
+  return data;
+}
+
+const ops = [
+  KIND_ALMOST_WITH_OPERAND,
+  KIND_HAS_BEEN_WITH_OPERAND,
+  KIND_WITH_OPERAND, // we want to parse this last because KIND_HAS_BEEN_WITH_OPERAND has substring of KIND_WITH_OPERAND
+];
+const opToKind = {
+  [KIND_WITH_OPERAND]: KIND_WITH,
+  [KIND_ALMOST_WITH_OPERAND]: KIND_ALMOST_WITH,
+  [KIND_HAS_BEEN_WITH_OPERAND]: KIND_HAS_BEEN_WITH,
+};
+
+export function tokenizeByOperand(line) {
+  for (let op of ops) {
+    const i = line.indexOf(op);
+    if (i !== -1) {
+      return [
+        line.substring(0, i).trim(),
+        op,
+        line.substring(i + op.length).trim(),
+      ];
+    }
+  }
+}
+
 export function pplStringToRelationships(s) {
   const lines = s.split('\n');
 
@@ -26,37 +59,29 @@ export function pplStringToRelationships(s) {
 
   let lastRelationship;
 
-  for (const l of lines) {
-    const lt = l.trim();
-    if (lt[0] === '#' || lt === '') {
-    } else if (l[0] === ' ') {
+  for (const l_ of lines) {
+    const l = handleWhitespaceAndComment(l_);
+    if (l === '') {
+    } else if (l_[0] === ' ' || l_[0] === '\t') {
       if (!lastRelationship.siblings) {
         lastRelationship.siblings = [];
       }
-      lastRelationship.siblings.push(l.trim());
+      lastRelationship.siblings.push(l);
     } else {
-      const firstSpaceIdx = l.indexOf(' ');
-      const lastSpaceIdx = l.lastIndexOf(' ');
-      let personA = l.substring(0, firstSpaceIdx);
-      let personB = l.substring(lastSpaceIdx + 1);
-      if (personA === '?') {
-        personA = `random${randomI++}`;
+      let [a, op, b] = tokenizeByOperand(l);
+      if (!op) {
+        throw new Error(`Unsupported syntax: "${l_}"`);
       }
-      if (personB === '?') {
-        personB = `random${randomI++}`;
+      if (a === '?') {
+        a = `random${randomI++}`;
       }
-      const rel = l.substring(firstSpaceIdx, lastSpaceIdx).trim();
-      let kind;
-      if (rel === KIND_WITH_OPERAND) {
-        kind = KIND_WITH;
-      } else if (rel === KIND_ALMOST_WITH_OPERAND) {
-        kind = KIND_ALMOST_WITH;
-      } else if (rel === KIND_HAS_BEEN_WITH_OPERAND) {
-        kind = KIND_HAS_BEEN_WITH;
+      if (b === '?') {
+        b = `random${randomI++}`;
       }
+      const kind = opToKind[op];
       lastRelationship = {
-        a: personA,
-        b: personB,
+        a,
+        b,
         kind,
       };
       relationships.push(lastRelationship);

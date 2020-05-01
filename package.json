@@ -12,8 +12,9 @@
   },
   "scripts": {
     "test": "jest",
-    "run-sample-bin": "bin/ppl2gv public/parenthood.ppl public/parenthood.gv",
-    "run-sample-dot": "dot public/parenthood.gv -Tpng -O && dot public/parenthood.gv -Tsvg -O && dot public/parenthood.gv -Tpdf -O"
+    "run-sample-bin": "bin/ppl2gv public/parenthood2.ppl public/parenthood2.gv",
+    "run-sample-dot": "dot public/parenthood2.gv -Tpng -O && dot public/parenthood2.gv -Tsvg -O && dot public/parenthood2.gv -Tpdf -O",
+    "run-samples": "yarn run-sample-bin && yarn run-sample-dot && open public/parenthood2.gv.pdf"
   },
   "repository": {
     "type": "git",
