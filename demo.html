@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>parenthood demo</title>
+    <style>
+      textarea {
+        width: 33vw;
+        height: 100vh;
+      }
+
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 66vw;
+        height: 100vh;
+      }
+    </style>
+
+    <script src="./ext/viz.js"></script>
+    <script src="./ext/svg-pan-zoom.js"></script>
+  </head>
+  <body>
+    <textarea spellcheck="false">
+? + ?
+  Adam
+  Sarah
+  Julia
+  Crosby
+
+Adam +/ ?
+  Max
+  Paddy
+
+Sarah + ?
+  Amber
+  Drew
+
+Julia + ?
+  Sydney
+
+Crosby + ?
+  Jabbar
+</textarea
+    >
+
+    <script type="module">
+      import { processPplString } from './core.mjs';
+
+      const parser = new DOMParser();
+      const taEl = document.querySelector('textarea');
+      let svgEl, panZoom;
+
+      function update() {
+        if (svgEl) {
+          document.body.removeChild(svgEl);
+          svgEl = undefined;
+        }
+
+        const src0 = taEl.value;
+        let result;
+
+        try {
+          const src = processPplString(src0);
+          result = Viz(src, {
+            engine: 'dot',
+            format: 'svg',
+          });
+        } catch (ex) {
+          console.error(ex);
+          taEl.style.color = 'red';
+          return;
+        }
+        taEl.style.color = '';
+
+        svgEl = parser.parseFromString(result, 'image/svg+xml').documentElement;
+        svgEl.tabIndex = 1;
+        document.body.appendChild(svgEl);
+
+        panZoom = svgPanZoom(svgEl, {
+          zoomEnabled: true,
+          controlIconsEnabled: true,
+          fit: true,
+          center: true,
+          minZoom: 0.1,
+        });
+
+        svgEl.addEventListener(
+          'paneresize',
+          () => {
+            panZoom.resize();
+          },
+          false
+        );
+      }
+
+      window.addEventListener('resize', () => {
+        panZoom && panZoom.resize();
+      });
+
+      taEl.addEventListener('change', update);
+      update();
+    </script>
+  </body>
+</html>
