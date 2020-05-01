@@ -40,7 +40,9 @@ This would output this result graphviz data: [parenthood.gv](public/parenthood.g
 
 And using graphviz you would get:
 
-![generated png diagram](public/parenthood.png).
+![generated png diagram](public/parenthood.gv.png)  
+![generated svg diagram](public/parenthood.gv.svg)  
+[generated pdf diagram](public/parenthood.gv.pdf) ...
 
 ## The PPL format
 
@@ -71,6 +73,12 @@ People names must be not have spaces as they aren't escaped in graphviz yet.
 The layout may get cluttered with too many people or people with many relationships.
 If you mention the same person with different names you're spawning a different person. Should be easy to spot.
 
+## installing
+
+`npm install parenthood`  
+or  
+`yarn add parenthood`
+
 ## using the script to generate graphviz file
 
 The Javascript module converts a ppl file to a graphviz dot compatible file,
@@ -78,7 +86,7 @@ able to render in any rendered such as [graphviz](http://graphviz.org/), [viz.js
 
 Run it like this:
 
-`node --experimental-modules ppl2dot.mjs parenthood.ppl`
+`ppl2gv parenthood.ppl`
 
 which will output `parenthood.gv`.  
 provide the outfile as an additional argument if desired
@@ -126,7 +134,7 @@ I have no affiliation to the series and don't intend to spoil. 🙏
 - support more robust names
 - tab support
 - comments after content (same line)
-- confirm bin works
+- confirm bin works via npm
 
 ### Features
 

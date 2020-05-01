@@ -3,16 +3,17 @@
   "description": "a way to organize relationships in plots via a simple text format (ppl). generates graphviz dot output.",
   "homepage": "https://github.com/josepedrodias/parenthood",
   "license": "CC-BY-4.0",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "José Pedro Dias <jose.pedro.dias@gmail.com>",
   "main": "core.mjs",
+  "type": "module",
   "bin": {
     "ppl2gv": "bin/ppl2gv"
   },
   "scripts": {
     "test": "jest",
-    "run-sample-bin": "ppl2gv public/parenthood.ppl public/parenthood.gv",
-    "run-sample-dot": "dot public/parenthood.gv -Tpng > public/parenthood.png"
+    "run-sample-bin": "bin/ppl2gv public/parenthood.ppl public/parenthood.gv",
+    "run-sample-dot": "dot public/parenthood.gv -Tpng -O && dot public/parenthood.gv -Tsvg -O && dot public/parenthood.gv -Tpdf -O"
   },
   "repository": {
     "type": "git",
