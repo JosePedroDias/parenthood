@@ -1,11 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { processPplString } from './core.mjs';
+#!/usr/bin/env node
 
-export function processPplFile(filenameIn, filenameOut) {
-  const s = readFileSync(filenameIn).toString();
-  const s2 = processPplString(s);
-  writeFileSync(filenameOut, s2);
-}
+import { processPplFile } from '../src/ppl2gv.mjs';
 
 if (process.argv) {
   const args = Array.from(process.argv);

@@ -7,12 +7,12 @@
   "author": "José Pedro Dias <jose.pedro.dias@gmail.com>",
   "main": "core.mjs",
   "bin": {
-    "ppl2dot": "ppl2dot.mjs"
+    "ppl2gv": "bin/ppl2gv"
   },
   "scripts": {
     "test": "jest",
-    "run-sample-bin": "node --experimental-modules ppl2dot.mjs parenthood.ppl public/parenthood.gv",
-    "run-sample-dot": "dot parenthood.gv -Tpng > public/parenthood.png"
+    "run-sample-bin": "ppl2gv public/parenthood.ppl public/parenthood.gv",
+    "run-sample-dot": "dot public/parenthood.gv -Tpng > public/parenthood.png"
   },
   "repository": {
     "type": "git",

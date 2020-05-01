@@ -127,7 +127,6 @@ I have no affiliation to the series and don't intend to spoil. 🙏
 - tab support
 - comments after content (same line)
 - confirm bin works
-- publish to npm
 
 ### Features
 
