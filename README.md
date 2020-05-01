@@ -57,16 +57,19 @@ A relationship can be described by 2 people and an optional set of siblings
 
 relationship kinds can be:
 
-- `..` seem to be getting along (rose)
+- `..` seem to be getting along (cyan)
 - `+` together
 - `+/` used to be together (red)
 
 The simple parser ignores lines starting with `#`
 
+The indentation for siblings is irrelevant. One space suffices. No tab support yet.
+
 ### limitations
 
-People names must be not have spaces as they aren't escaped in dot.  
+People names must be not have spaces as they aren't escaped in graphviz yet.
 The layout may get cluttered with too many people or people with many relationships.
+If you mention the same person with different names you're spawning a different person. Should be easy to spot.
 
 ## using the script to generate graphviz file
 
@@ -75,16 +78,19 @@ able to render in any rendered such as [graphviz](http://graphviz.org/), [viz.js
 
 Run it like this:
 
-`node --experimental-modules ppl2dot.mjs parenthood.ppl`  
+`node --experimental-modules ppl2dot.mjs parenthood.ppl`
+
 which will output `parenthood.gv`.  
-provide the outfile as an additioanl parameter if desired
+provide the outfile as an additional argument if desired
 
 ## generating diagrams
 
 ### in the browser
 
 Check the [demo](https://josepedrodias.github.io/parenthood/demo.html).
-You need to focus outside the text area to refresh the diagram.
+You need to focus outside the text area to refresh the diagram.  
+Using [viz.js](http://viz-js.com/) here.
+Think of this as a hack to allow you to experiment, nothing fancy...
 
 ### in the command line
 
@@ -102,22 +108,24 @@ You need to focus outside the text area to refresh the diagram.
 
 ## technical remarks
 
-Using Javascript modules to share the most possible between browser and node. If you need to run with without it, conversion is trivial.
+Using Javascript modules to share the most possible between browser and node. If you need to run with without modules, conversion to commonjs or window export is trivial.
 
-The code has no dependencies. Jest brings a lot of deps along just to support mjs (sorry!).
+The code itself has no dependencies. Jest brings a lot of deps along just to support mjs (sorry!).
 
 I'm not an expert in graphviz and the parser is super simple. I wanted to get the point across and contributions are welcome!
 
 ## disclaimer
 
-Some Parenthood TV Series characters are used here as an example.  
-I have no affiliation to the content and don't intend to spoil. 🙏
+Some Parenthood TV Series characters were used here as an example.  
+I have no affiliation to the series and don't intend to spoil. 🙏
 
 ## TODOs
 
 ### Technical
 
 - support more robust names
+- tab support
+- comments after content (same line)
 - confirm bin works
 - publish to npm
 
@@ -128,11 +136,11 @@ I have no affiliation to the content and don't intend to spoil. 🙏
 
 ## reference
 
-- graphviz on the web http://viz-js.com/
+- [viz.js](http://viz-js.com/), one of several graphviz implementations for js
 - graphviz spec
-  - https://graphviz.gitlab.io/_pages/doc/info/lang.html
-  - https://graphviz.gitlab.io/_pages/doc/info/attrs.html
-  - https://www.graphviz.org/doc/info/shapes.html
-- graphviz command-line https://www.graphviz.org/doc/info/command.html
-- jest docs https://jestjs.io/docs/en/getting-started.html
-- package.json spec https://docs.npmjs.com/files/package.json
+  - [lang](https://www.graphviz.org/doc/info/lang.html)
+  - [attributes](https://www.graphviz.org/doc/info/attrs.html)
+  - [shapes](https://www.graphviz.org/doc/info/shapes.html)
+  - [command-line usage](https://www.graphviz.org/doc/info/command.html)
+- [jest docs](https://jestjs.io/docs/en/getting-started.html)
+- [package.json spec](https://docs.npmjs.com/files/package.json)
