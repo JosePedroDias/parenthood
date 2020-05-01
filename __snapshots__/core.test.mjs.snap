@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processPplString processes 1 has_been_with relationship w/ 2 siblings 1`] = `
+"graph {
+  node [shape=box fontname=Helvetica]
+
+  subgraph {
+    rank=same
+    p1 -- p1_p2 -- p2 [color=red]
+    p1_p2 [color=red shape=point]
+  }
+
+  p1_p2 -- p1_p2_sibs
+
+  p1_p2_sibs [shape=point]
+
+  p1_p2_sibs -- s1
+  p1_p2_sibs -- s2
+
+  subgraph {
+    rank=same
+    s1
+    s2
+  }
+
+}"
+`;

@@ -1,4 +1,17 @@
-const shapePointAttr = '[shape=point]';
+const KIND_WITH_OPERAND = '+';
+const KIND_ALMOST_WITH_OPERAND = '..';
+const KIND_HAS_BEEN_WITH_OPERAND = '+/';
+
+const KIND_WITH = 'with';
+const KIND_ALMOST_WITH = 'almost_with';
+const KIND_HAS_BEEN_WITH = 'has_been_with';
+
+const KIND_ALMOST_WITH_COLOR = 'rose';
+const KIND_HAS_BEEN_WITH_COLOR = 'red';
+
+const DEFAULT_SHAPE = 'box';
+const DEFAULT_FONT = 'Helvetica';
+const SHAPE_POINT_ATTR = '[shape=point]';
 
 export function processPplString(s) {
   return relationshipsToDot(pplStringToRelationships(s));
@@ -34,12 +47,12 @@ export function pplStringToRelationships(s) {
       }
       const rel = l.substring(firstSpaceIdx, lastSpaceIdx).trim();
       let kind;
-      if (rel === '+') {
-        kind = 'with';
-      } else if (rel === '+...') {
-        kind = 'almost_with';
-      } else if (rel === '+/') {
-        kind = 'has_been_with';
+      if (rel === KIND_WITH_OPERAND) {
+        kind = KIND_WITH;
+      } else if (rel === KIND_ALMOST_WITH_OPERAND) {
+        kind = KIND_ALMOST_WITH;
+      } else if (rel === KIND_HAS_BEEN_WITH_OPERAND) {
+        kind = KIND_HAS_BEEN_WITH;
       }
       lastRelationship = {
         a: personA,
@@ -59,10 +72,10 @@ function relationshipsToDot(relationships) {
 
   for (const { a, b, kind, siblings } of relationships) {
     let relAttrs = '';
-    if (kind === 'has_been_with') {
-      relAttrs = ' [color=red]';
-    } else if (kind === 'almost_with') {
-      relAttrs = ' [color=rose]';
+    if (kind === KIND_HAS_BEEN_WITH) {
+      relAttrs = ` [color=${KIND_HAS_BEEN_WITH_COLOR}]`;
+    } else if (kind === KIND_ALMOST_WITH) {
+      relAttrs = ` [color=${KIND_ALMOST_WITH_COLOR}]`;
     }
     part = [
       `  subgraph {
@@ -70,7 +83,7 @@ function relationshipsToDot(relationships) {
     ${a} -- ${a}_${b} -- ${b}${relAttrs}
     ${a}_${b} ${
         relAttrs ? relAttrs.substring(1, relAttrs.length - 1) + ' ' : '['
-      }${shapePointAttr.substring(1)}`,
+      }${SHAPE_POINT_ATTR.substring(1)}`,
     ];
     part.push('  }');
 
@@ -78,7 +91,7 @@ function relationshipsToDot(relationships) {
       part.push('');
       part.push(`  ${a}_${b} -- ${a}_${b}_sibs`);
       part.push('');
-      part.push(`  ${a}_${b}_sibs ${shapePointAttr}`);
+      part.push(`  ${a}_${b}_sibs ${SHAPE_POINT_ATTR}`);
       part.push('');
       for (const s of siblings) {
         part.push(`  ${a}_${b}_sibs -- ${s}`);
@@ -96,7 +109,7 @@ function relationshipsToDot(relationships) {
   }
 
   return `graph {
-  node [shape=box fontname=Helvetica]
+  node [shape=${DEFAULT_SHAPE} fontname=${DEFAULT_FONT}]
 
 ${parts.join('\n\n')}
 

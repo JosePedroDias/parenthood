@@ -23,9 +23,11 @@ A relationship can be described by 2 people and an optional set of siblings
 
 relationship kinds can be:
 
-- `+...` seem to be getting along (rose)
+- `..` seem to be getting along (rose)
 - `+` together
 - `+/` used to be together (red)
+
+The simple parser ignores lines starting with `#`
 
 ### limitations
 
