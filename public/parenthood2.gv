@@ -1,0 +1,99 @@
+graph {
+  node [shape=box fontname=Helvetica]
+
+  subgraph {
+    rank=same
+    "Zeek Braverman" -- "Zeek Braverman_Camille Braverman" -- "Camille Braverman"
+    "Zeek Braverman_Camille Braverman" [shape=point]
+  }
+
+  "Zeek Braverman_Camille Braverman" -- "Zeek Braverman_Camille Braverman_sibs"
+
+  "Zeek Braverman_Camille Braverman_sibs" [shape=point]
+
+  "Zeek Braverman_Camille Braverman_sibs" -- "Adam Braverman"
+  "Zeek Braverman_Camille Braverman_sibs" -- "Sarah Braverman"
+  "Zeek Braverman_Camille Braverman_sibs" -- "Julia Braverman"
+  "Zeek Braverman_Camille Braverman_sibs" -- "Crosby Braverman"
+
+  subgraph {
+    rank=same
+    "Adam Braverman"
+    "Sarah Braverman"
+    "Julia Braverman"
+    "Crosby Braverman"
+  }
+
+  subgraph {
+    rank=same
+    "Adam Braverman" -- "Adam Braverman_Kristina Braverman" -- "Kristina Braverman"
+    "Adam Braverman_Kristina Braverman" [shape=point]
+  }
+
+  "Adam Braverman_Kristina Braverman" -- "Adam Braverman_Kristina Braverman_sibs"
+
+  "Adam Braverman_Kristina Braverman_sibs" [shape=point]
+
+  "Adam Braverman_Kristina Braverman_sibs" -- "Haddie Braverman"
+  "Adam Braverman_Kristina Braverman_sibs" -- "Max Braverman"
+
+  subgraph {
+    rank=same
+    "Haddie Braverman"
+    "Max Braverman"
+  }
+
+  subgraph {
+    rank=same
+    "Sarah Braverman" -- "Sarah Braverman_Seth Holt" -- "Seth Holt" [color=red]
+    "Sarah Braverman_Seth Holt" [color=red shape=point]
+  }
+
+  "Sarah Braverman_Seth Holt" -- "Sarah Braverman_Seth Holt_sibs"
+
+  "Sarah Braverman_Seth Holt_sibs" [shape=point]
+
+  "Sarah Braverman_Seth Holt_sibs" -- "Amber Holt"
+  "Sarah Braverman_Seth Holt_sibs" -- "Drew Holt"
+
+  subgraph {
+    rank=same
+    "Amber Holt"
+    "Drew Holt"
+  }
+
+  subgraph {
+    rank=same
+    "Julia Braverman-Graham" -- "Julia Braverman-Graham_Joel Graham" -- "Joel Graham"
+    "Julia Braverman-Graham_Joel Graham" [shape=point]
+  }
+
+  "Julia Braverman-Graham_Joel Graham" -- "Julia Braverman-Graham_Joel Graham_sibs"
+
+  "Julia Braverman-Graham_Joel Graham_sibs" [shape=point]
+
+  "Julia Braverman-Graham_Joel Graham_sibs" -- "Sydney Graham"
+
+  subgraph {
+    rank=same
+    "Sydney Graham"
+  }
+
+  subgraph {
+    rank=same
+    "Crosby Braverman" -- "Crosby Braverman_Jasmine Trussell" -- "Jasmine Trussell" [color=cyan]
+    "Crosby Braverman_Jasmine Trussell" [color=cyan shape=point]
+  }
+
+  "Crosby Braverman_Jasmine Trussell" -- "Crosby Braverman_Jasmine Trussell_sibs"
+
+  "Crosby Braverman_Jasmine Trussell_sibs" [shape=point]
+
+  "Crosby Braverman_Jasmine Trussell_sibs" -- "Jabbar Trussell"
+
+  subgraph {
+    rank=same
+    "Jabbar Trussell"
+  }
+
+}

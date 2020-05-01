@@ -41,8 +41,8 @@ This would output this result graphviz data: [parenthood.gv](public/parenthood.g
 And using graphviz you would get:
 
 ![generated png diagram](public/parenthood.gv.png)  
-![generated svg diagram](public/parenthood.gv.svg)  
-[generated pdf diagram](public/parenthood.gv.pdf) ...
+[svg diagram](public/parenthood.gv.svg),
+[pdf diagram](public/parenthood.gv.pdf) ...
 
 ## The PPL format
 
@@ -51,10 +51,10 @@ The ppl format is a text file with a set of relationship.
 A relationship can be described by 2 people and an optional set of siblings
 
 ```
-<person1> <relationship_kind> <person2>
-    <sibling1>
+<person 1> <relationship_kind> <person 2>
+    <sibling 1>
     ...
-    <siblingn>
+    <sibling n>
 ```
 
 relationship kinds can be:
@@ -63,14 +63,13 @@ relationship kinds can be:
 - `+` together
 - `+/` used to be together (red)
 
-The simple parser ignores lines starting with `#`
+Content after a hash `#` is considered comments and ignored.
 
-The indentation for siblings is irrelevant. One space suffices. No tab support yet.
+The indentation for siblings is irrelevant. Number of spaces or tabs is irrelevant.
 
 ### limitations
 
-People names must be not have spaces as they aren't escaped in graphviz yet.
-The layout may get cluttered with too many people or people with many relationships.
+The layout may get cluttered with too many people or people with many relationships.  
 If you mention the same person with different names you're spawning a different person. Should be easy to spot.
 
 ## installing
@@ -131,9 +130,6 @@ I have no affiliation to the series and don't intend to spoil. 🙏
 
 ### Technical
 
-- support more robust names
-- tab support
-- comments after content (same line)
 - confirm bin works via npm
 
 ### Features

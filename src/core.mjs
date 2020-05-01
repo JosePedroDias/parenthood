@@ -105,8 +105,8 @@ function relationshipsToDot(relationships) {
     part = [
       `  subgraph {
     rank=same
-    ${a} -- ${a}_${b} -- ${b}${relAttrs}
-    ${a}_${b} ${
+    "${a}" -- "${a}_${b}" -- "${b}"${relAttrs}
+    "${a}_${b}" ${
         relAttrs ? relAttrs.substring(1, relAttrs.length - 1) + ' ' : '['
       }${SHAPE_POINT_ATTR.substring(1)}`,
     ];
@@ -114,18 +114,18 @@ function relationshipsToDot(relationships) {
 
     if (siblings) {
       part.push('');
-      part.push(`  ${a}_${b} -- ${a}_${b}_sibs`);
+      part.push(`  "${a}_${b}" -- "${a}_${b}_sibs"`);
       part.push('');
-      part.push(`  ${a}_${b}_sibs ${SHAPE_POINT_ATTR}`);
+      part.push(`  "${a}_${b}_sibs" ${SHAPE_POINT_ATTR}`);
       part.push('');
       for (const s of siblings) {
-        part.push(`  ${a}_${b}_sibs -- ${s}`);
+        part.push(`  "${a}_${b}_sibs" -- "${s}"`);
       }
       part.push('');
       part.push('  subgraph {');
       part.push('    rank=same');
       for (const s of siblings) {
-        part.push(`    ${s}`);
+        part.push(`    "${s}"`);
       }
       part.push('  }');
     }
