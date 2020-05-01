@@ -6,7 +6,7 @@ const KIND_WITH = 'with';
 const KIND_ALMOST_WITH = 'almost_with';
 const KIND_HAS_BEEN_WITH = 'has_been_with';
 
-const KIND_ALMOST_WITH_COLOR = 'rose';
+const KIND_ALMOST_WITH_COLOR = 'cyan';
 const KIND_HAS_BEEN_WITH_COLOR = 'red';
 
 const DEFAULT_SHAPE = 'box';

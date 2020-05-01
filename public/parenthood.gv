@@ -1,0 +1,99 @@
+graph {
+  node [shape=box fontname=Helvetica]
+
+  subgraph {
+    rank=same
+    Zeek -- Zeek_Camille -- Camille
+    Zeek_Camille [shape=point]
+  }
+
+  Zeek_Camille -- Zeek_Camille_sibs
+
+  Zeek_Camille_sibs [shape=point]
+
+  Zeek_Camille_sibs -- Adam
+  Zeek_Camille_sibs -- Sarah
+  Zeek_Camille_sibs -- Julia
+  Zeek_Camille_sibs -- Crosby
+
+  subgraph {
+    rank=same
+    Adam
+    Sarah
+    Julia
+    Crosby
+  }
+
+  subgraph {
+    rank=same
+    Adam -- Adam_Kristina -- Kristina
+    Adam_Kristina [shape=point]
+  }
+
+  Adam_Kristina -- Adam_Kristina_sibs
+
+  Adam_Kristina_sibs [shape=point]
+
+  Adam_Kristina_sibs -- Haddie
+  Adam_Kristina_sibs -- Max
+
+  subgraph {
+    rank=same
+    Haddie
+    Max
+  }
+
+  subgraph {
+    rank=same
+    Sarah -- Sarah_Seth -- Seth [color=red]
+    Sarah_Seth [color=red shape=point]
+  }
+
+  Sarah_Seth -- Sarah_Seth_sibs
+
+  Sarah_Seth_sibs [shape=point]
+
+  Sarah_Seth_sibs -- Amber
+  Sarah_Seth_sibs -- Drew
+
+  subgraph {
+    rank=same
+    Amber
+    Drew
+  }
+
+  subgraph {
+    rank=same
+    Julia -- Julia_Joel -- Joel
+    Julia_Joel [shape=point]
+  }
+
+  Julia_Joel -- Julia_Joel_sibs
+
+  Julia_Joel_sibs [shape=point]
+
+  Julia_Joel_sibs -- Sydney
+
+  subgraph {
+    rank=same
+    Sydney
+  }
+
+  subgraph {
+    rank=same
+    Crosby -- Crosby_Jasmine -- Jasmine [color=cyan]
+    Crosby_Jasmine [color=cyan shape=point]
+  }
+
+  Crosby_Jasmine -- Crosby_Jasmine_sibs
+
+  Crosby_Jasmine_sibs [shape=point]
+
+  Crosby_Jasmine_sibs -- Jabbar
+
+  subgraph {
+    rank=same
+    Jabbar
+  }
+
+}

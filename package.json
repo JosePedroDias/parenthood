@@ -10,7 +10,9 @@
     "ppl2dot": "ppl2dot.mjs"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "run-sample-bin": "node --experimental-modules ppl2dot.mjs parenthood.ppl public/parenthood.gv",
+    "run-sample-dot": "dot parenthood.gv -Tpng > public/parenthood.png"
   },
   "repository": {
     "type": "git",
