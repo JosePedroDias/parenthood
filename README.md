@@ -113,6 +113,9 @@ Think of this as a hack to allow you to experiment, nothing fancy...
 `dot parenthood.gv -Tsvg -O` (for svg)  
 `dot parenthood.gv -Tpdf -O` (for pdf)
 
+`dot` uses ranks in orthogonal dimensions.  
+try `neato` and `twopi` engines as well. the results are less predictable but nodes tend to distribute better.
+
 ## technical remarks
 
 Using Javascript modules to share the most possible between browser and node. If you need to run with without modules, conversion to commonjs or window export is trivial.
@@ -145,5 +148,6 @@ I have no affiliation to the series and don't intend to spoil. 🙏
   - [attributes](https://www.graphviz.org/doc/info/attrs.html)
   - [shapes](https://www.graphviz.org/doc/info/shapes.html)
   - [command-line usage](https://www.graphviz.org/doc/info/command.html)
+  - [neato guide](https://graphviz.gitlab.io/_pages/pdf/neatoguide.pdf)
 - [jest docs](https://jestjs.io/docs/en/getting-started.html)
 - [package.json spec](https://docs.npmjs.com/files/package.json)

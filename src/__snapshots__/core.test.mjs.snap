@@ -2,25 +2,35 @@
 
 exports[`processPplString processes 1 has_been_with relationship w/ 2 siblings 1`] = `
 "graph {
-  node [shape=box fontname=Helvetica]
+  node [shape=rect style=rounded fontname=Helvetica fontsize=10 margin=0.02]
+  splines=true
+  overlap=false
+  #pack=true
+  #packMode=\\"node\\"
+  #ratio=1.5
+  #rankdir=\\"LR\\"
+  #newrank=true
+
 
   subgraph {
     rank=same
-    \\"p1\\" -- \\"p1_p2\\" -- \\"p2\\" [color=red]
-    \\"p1_p2\\" [color=red shape=point]
+    \\"p1\\" -- \\"p1_p2\\" -- \\"p2\\" [ color=red penwidth=1.5 weight=2 len=0.7]
+    \\"p1\\" [label=\\"p1\\" tooltip=\\"p1\\"]
+    \\"p2\\" [label=\\"p2\\" tooltip=\\"p2\\"]
+    \\"p1_p2\\" [ color=red shape=none width=0 height=0 label=\\"\\"]
   }
 
   \\"p1_p2\\" -- \\"p1_p2_sibs\\"
 
-  \\"p1_p2_sibs\\" [shape=point]
+  \\"p1_p2_sibs\\" [shape=none width=0 height=0 label=\\"\\"]
 
-  \\"p1_p2_sibs\\" -- \\"s1\\"
-  \\"p1_p2_sibs\\" -- \\"s2\\"
+  \\"p1_p2_sibs\\" -- \\"s1\\" [dir=forward arrowType=open arrowsize=0.5]
+  \\"p1_p2_sibs\\" -- \\"s2\\" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    \\"s1\\"
-    \\"s2\\"
+    \\"s1\\" [label=\\"s1\\" tooltip=\\"s1\\"]
+    \\"s2\\" [label=\\"s2\\" tooltip=\\"s2\\"]
   }
 
 }"

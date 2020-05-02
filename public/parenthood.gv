@@ -1,99 +1,117 @@
 graph {
-  node [shape=box fontname=Helvetica]
+  node [shape=rect style=rounded fontname=Helvetica fontsize=10 margin=0.02]
+  splines=true
+  overlap=false
+  #pack=true
+  #packMode="node"
+  #ratio=1.5
+  #rankdir="LR"
+  #newrank=true
+
 
   subgraph {
     rank=same
-    "Zeek" -- "Zeek_Camille" -- "Camille"
-    "Zeek_Camille" [shape=point]
+    "Zeek" -- "Zeek_Camille" -- "Camille" [ penwidth=1.5 weight=2 len=0.7]
+    "Zeek" [label="Zeek" tooltip="Zeek"]
+    "Camille" [label="Camille" tooltip="Camille"]
+    "Zeek_Camille" [ shape=none width=0 height=0 label=""]
   }
 
   "Zeek_Camille" -- "Zeek_Camille_sibs"
 
-  "Zeek_Camille_sibs" [shape=point]
+  "Zeek_Camille_sibs" [shape=none width=0 height=0 label=""]
 
-  "Zeek_Camille_sibs" -- "Adam"
-  "Zeek_Camille_sibs" -- "Sarah"
-  "Zeek_Camille_sibs" -- "Julia"
-  "Zeek_Camille_sibs" -- "Crosby"
+  "Zeek_Camille_sibs" -- "Adam" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek_Camille_sibs" -- "Sarah" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek_Camille_sibs" -- "Julia" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek_Camille_sibs" -- "Crosby" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Adam"
-    "Sarah"
-    "Julia"
-    "Crosby"
+    "Adam" [label="Adam" tooltip="Adam"]
+    "Sarah" [label="Sarah" tooltip="Sarah"]
+    "Julia" [label="Julia" tooltip="Julia"]
+    "Crosby" [label="Crosby" tooltip="Crosby"]
   }
 
   subgraph {
     rank=same
-    "Adam" -- "Adam_Kristina" -- "Kristina"
-    "Adam_Kristina" [shape=point]
+    "Adam" -- "Adam_Kristina" -- "Kristina" [ penwidth=1.5 weight=2 len=0.7]
+    "Adam" [label="Adam" tooltip="Adam"]
+    "Kristina" [label="Kristina" tooltip="Kristina"]
+    "Adam_Kristina" [ shape=none width=0 height=0 label=""]
   }
 
   "Adam_Kristina" -- "Adam_Kristina_sibs"
 
-  "Adam_Kristina_sibs" [shape=point]
+  "Adam_Kristina_sibs" [shape=none width=0 height=0 label=""]
 
-  "Adam_Kristina_sibs" -- "Haddie"
-  "Adam_Kristina_sibs" -- "Max"
+  "Adam_Kristina_sibs" -- "Haddie" [dir=forward arrowType=open arrowsize=0.5]
+  "Adam_Kristina_sibs" -- "Max" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Haddie"
-    "Max"
+    "Haddie" [label="Haddie" tooltip="Haddie"]
+    "Max" [label="Max" tooltip="Max"]
   }
 
   subgraph {
     rank=same
-    "Sarah" -- "Sarah_Seth" -- "Seth" [color=red]
-    "Sarah_Seth" [color=red shape=point]
+    "Sarah" -- "Sarah_Seth" -- "Seth" [ color=red penwidth=1.5 weight=2 len=0.7]
+    "Sarah" [label="Sarah" tooltip="Sarah"]
+    "Seth" [label="Seth" tooltip="Seth"]
+    "Sarah_Seth" [ color=red shape=none width=0 height=0 label=""]
   }
 
   "Sarah_Seth" -- "Sarah_Seth_sibs"
 
-  "Sarah_Seth_sibs" [shape=point]
+  "Sarah_Seth_sibs" [shape=none width=0 height=0 label=""]
 
-  "Sarah_Seth_sibs" -- "Amber"
-  "Sarah_Seth_sibs" -- "Drew"
+  "Sarah_Seth_sibs" -- "Amber" [dir=forward arrowType=open arrowsize=0.5]
+  "Sarah_Seth_sibs" -- "Drew" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Amber"
-    "Drew"
+    "Amber" [label="Amber" tooltip="Amber"]
+    "Drew" [label="Drew" tooltip="Drew"]
   }
 
   subgraph {
     rank=same
-    "Julia" -- "Julia_Joel" -- "Joel"
-    "Julia_Joel" [shape=point]
+    "Julia" -- "Julia_Joel" -- "Joel" [ penwidth=1.5 weight=2 len=0.7]
+    "Julia" [label="Julia" tooltip="Julia"]
+    "Joel" [label="Joel" tooltip="Joel"]
+    "Julia_Joel" [ shape=none width=0 height=0 label=""]
   }
 
   "Julia_Joel" -- "Julia_Joel_sibs"
 
-  "Julia_Joel_sibs" [shape=point]
+  "Julia_Joel_sibs" [shape=none width=0 height=0 label=""]
 
-  "Julia_Joel_sibs" -- "Sydney"
+  "Julia_Joel_sibs" -- "Sydney" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Sydney"
+    "Sydney" [label="Sydney" tooltip="Sydney"]
   }
 
   subgraph {
     rank=same
-    "Crosby" -- "Crosby_Jasmine" -- "Jasmine" [color=cyan]
-    "Crosby_Jasmine" [color=cyan shape=point]
+    "Crosby" -- "Crosby_Jasmine" -- "Jasmine" [ color=cyan penwidth=1.5 weight=2 len=0.7]
+    "Crosby" [label="Crosby" tooltip="Crosby"]
+    "Jasmine" [label="Jasmine" tooltip="Jasmine"]
+    "Crosby_Jasmine" [ color=cyan shape=none width=0 height=0 label=""]
   }
 
   "Crosby_Jasmine" -- "Crosby_Jasmine_sibs"
 
-  "Crosby_Jasmine_sibs" [shape=point]
+  "Crosby_Jasmine_sibs" [shape=none width=0 height=0 label=""]
 
-  "Crosby_Jasmine_sibs" -- "Jabbar"
+  "Crosby_Jasmine_sibs" -- "Jabbar" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Jabbar"
+    "Jabbar" [label="Jabbar" tooltip="Jabbar"]
   }
 
 }

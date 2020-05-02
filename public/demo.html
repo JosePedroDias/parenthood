@@ -4,9 +4,16 @@
     <meta charset="utf-8" />
     <title>parenthood demo</title>
     <style>
-      textarea {
+      .left-pane {
         width: 33vw;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      select {
+      }
+      textarea {
+        flex-grow: 1;
       }
 
       svg {
@@ -22,7 +29,13 @@
     <script src="./ext/svg-pan-zoom.js"></script>
   </head>
   <body>
-    <textarea spellcheck="false">
+    <div class="left-pane">
+      <select class="engine">
+        <option value="dot">dot</option>
+        <option value="neato">neato</option>
+        <option value="twopi">twopi</option>
+      </select>
+      <textarea spellcheck="false">
 Zeek + Camille
   Adam
   Sarah
@@ -43,13 +56,15 @@ Julia + Joel
 Crosby .. Jasmine
   Jabbar
 </textarea
-    >
+      >
+    </div>
 
     <script type="module">
       import { processPplString } from '../src/core.mjs';
 
       const parser = new DOMParser();
       const taEl = document.querySelector('textarea');
+      const engineEl = document.querySelector('.engine');
       let svgEl, panZoom;
 
       function update() {
@@ -64,7 +79,7 @@ Crosby .. Jasmine
         try {
           const src = processPplString(src0);
           result = Viz(src, {
-            engine: 'dot',
+            engine: engineEl.value,
             format: 'svg',
           });
         } catch (ex) {
@@ -100,6 +115,7 @@ Crosby .. Jasmine
       });
 
       taEl.addEventListener('change', update);
+      engineEl.addEventListener('change', update);
       update();
     </script>
   </body>

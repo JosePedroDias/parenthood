@@ -1,99 +1,117 @@
 graph {
-  node [shape=box fontname=Helvetica]
+  node [shape=rect style=rounded fontname=Helvetica fontsize=10 margin=0.02]
+  splines=true
+  overlap=false
+  #pack=true
+  #packMode="node"
+  #ratio=1.5
+  #rankdir="LR"
+  #newrank=true
+
 
   subgraph {
     rank=same
-    "Zeek Braverman" -- "Zeek Braverman_Camille Braverman" -- "Camille Braverman"
-    "Zeek Braverman_Camille Braverman" [shape=point]
+    "Zeek Braverman" -- "Zeek Braverman_Camille Braverman" -- "Camille Braverman" [ penwidth=1.5 weight=2 len=0.7]
+    "Zeek Braverman" [label="Zeek Braverman" tooltip="Zeek Braverman"]
+    "Camille Braverman" [label="Camille Braverm" tooltip="Camille Braverman"]
+    "Zeek Braverman_Camille Braverman" [ shape=none width=0 height=0 label=""]
   }
 
   "Zeek Braverman_Camille Braverman" -- "Zeek Braverman_Camille Braverman_sibs"
 
-  "Zeek Braverman_Camille Braverman_sibs" [shape=point]
+  "Zeek Braverman_Camille Braverman_sibs" [shape=none width=0 height=0 label=""]
 
-  "Zeek Braverman_Camille Braverman_sibs" -- "Adam Braverman"
-  "Zeek Braverman_Camille Braverman_sibs" -- "Sarah Braverman"
-  "Zeek Braverman_Camille Braverman_sibs" -- "Julia Braverman"
-  "Zeek Braverman_Camille Braverman_sibs" -- "Crosby Braverman"
+  "Zeek Braverman_Camille Braverman_sibs" -- "Adam Braverman" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek Braverman_Camille Braverman_sibs" -- "Sarah Braverman" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek Braverman_Camille Braverman_sibs" -- "Julia Braverman" [dir=forward arrowType=open arrowsize=0.5]
+  "Zeek Braverman_Camille Braverman_sibs" -- "Crosby Braverman" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Adam Braverman"
-    "Sarah Braverman"
-    "Julia Braverman"
-    "Crosby Braverman"
+    "Adam Braverman" [label="Adam Braverman" tooltip="Adam Braverman"]
+    "Sarah Braverman" [label="Sarah Braverman" tooltip="Sarah Braverman"]
+    "Julia Braverman" [label="Julia Braverman" tooltip="Julia Braverman"]
+    "Crosby Braverman" [label="Crosby Braverma" tooltip="Crosby Braverman"]
   }
 
   subgraph {
     rank=same
-    "Adam Braverman" -- "Adam Braverman_Kristina Braverman" -- "Kristina Braverman"
-    "Adam Braverman_Kristina Braverman" [shape=point]
+    "Adam Braverman" -- "Adam Braverman_Kristina Braverman" -- "Kristina Braverman" [ penwidth=1.5 weight=2 len=0.7]
+    "Adam Braverman" [label="Adam Braverman" tooltip="Adam Braverman"]
+    "Kristina Braverman" [label="Kristina Braver" tooltip="Kristina Braverman"]
+    "Adam Braverman_Kristina Braverman" [ shape=none width=0 height=0 label=""]
   }
 
   "Adam Braverman_Kristina Braverman" -- "Adam Braverman_Kristina Braverman_sibs"
 
-  "Adam Braverman_Kristina Braverman_sibs" [shape=point]
+  "Adam Braverman_Kristina Braverman_sibs" [shape=none width=0 height=0 label=""]
 
-  "Adam Braverman_Kristina Braverman_sibs" -- "Haddie Braverman"
-  "Adam Braverman_Kristina Braverman_sibs" -- "Max Braverman"
+  "Adam Braverman_Kristina Braverman_sibs" -- "Haddie Braverman" [dir=forward arrowType=open arrowsize=0.5]
+  "Adam Braverman_Kristina Braverman_sibs" -- "Max Braverman" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Haddie Braverman"
-    "Max Braverman"
+    "Haddie Braverman" [label="Haddie Braverma" tooltip="Haddie Braverman"]
+    "Max Braverman" [label="Max Braverman" tooltip="Max Braverman"]
   }
 
   subgraph {
     rank=same
-    "Sarah Braverman" -- "Sarah Braverman_Seth Holt" -- "Seth Holt" [color=red]
-    "Sarah Braverman_Seth Holt" [color=red shape=point]
+    "Sarah Braverman" -- "Sarah Braverman_Seth Holt" -- "Seth Holt" [ color=red penwidth=1.5 weight=2 len=0.7]
+    "Sarah Braverman" [label="Sarah Braverman" tooltip="Sarah Braverman"]
+    "Seth Holt" [label="Seth Holt" tooltip="Seth Holt"]
+    "Sarah Braverman_Seth Holt" [ color=red shape=none width=0 height=0 label=""]
   }
 
   "Sarah Braverman_Seth Holt" -- "Sarah Braverman_Seth Holt_sibs"
 
-  "Sarah Braverman_Seth Holt_sibs" [shape=point]
+  "Sarah Braverman_Seth Holt_sibs" [shape=none width=0 height=0 label=""]
 
-  "Sarah Braverman_Seth Holt_sibs" -- "Amber Holt"
-  "Sarah Braverman_Seth Holt_sibs" -- "Drew Holt"
+  "Sarah Braverman_Seth Holt_sibs" -- "Amber Holt" [dir=forward arrowType=open arrowsize=0.5]
+  "Sarah Braverman_Seth Holt_sibs" -- "Drew Holt" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Amber Holt"
-    "Drew Holt"
+    "Amber Holt" [label="Amber Holt" tooltip="Amber Holt"]
+    "Drew Holt" [label="Drew Holt" tooltip="Drew Holt"]
   }
 
   subgraph {
     rank=same
-    "Julia Braverman-Graham" -- "Julia Braverman-Graham_Joel Graham" -- "Joel Graham"
-    "Julia Braverman-Graham_Joel Graham" [shape=point]
+    "Julia Braverman-Graham" -- "Julia Braverman-Graham_Joel Graham" -- "Joel Graham" [ penwidth=1.5 weight=2 len=0.7]
+    "Julia Braverman-Graham" [label="Julia Braverman" tooltip="Julia Braverman-Graham"]
+    "Joel Graham" [label="Joel Graham" tooltip="Joel Graham"]
+    "Julia Braverman-Graham_Joel Graham" [ shape=none width=0 height=0 label=""]
   }
 
   "Julia Braverman-Graham_Joel Graham" -- "Julia Braverman-Graham_Joel Graham_sibs"
 
-  "Julia Braverman-Graham_Joel Graham_sibs" [shape=point]
+  "Julia Braverman-Graham_Joel Graham_sibs" [shape=none width=0 height=0 label=""]
 
-  "Julia Braverman-Graham_Joel Graham_sibs" -- "Sydney Graham"
+  "Julia Braverman-Graham_Joel Graham_sibs" -- "Sydney Graham" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Sydney Graham"
+    "Sydney Graham" [label="Sydney Graham" tooltip="Sydney Graham"]
   }
 
   subgraph {
     rank=same
-    "Crosby Braverman" -- "Crosby Braverman_Jasmine Trussell" -- "Jasmine Trussell" [color=cyan]
-    "Crosby Braverman_Jasmine Trussell" [color=cyan shape=point]
+    "Crosby Braverman" -- "Crosby Braverman_Jasmine Trussell" -- "Jasmine Trussell" [ color=cyan penwidth=1.5 weight=2 len=0.7]
+    "Crosby Braverman" [label="Crosby Braverma" tooltip="Crosby Braverman"]
+    "Jasmine Trussell" [label="Jasmine Trussel" tooltip="Jasmine Trussell"]
+    "Crosby Braverman_Jasmine Trussell" [ color=cyan shape=none width=0 height=0 label=""]
   }
 
   "Crosby Braverman_Jasmine Trussell" -- "Crosby Braverman_Jasmine Trussell_sibs"
 
-  "Crosby Braverman_Jasmine Trussell_sibs" [shape=point]
+  "Crosby Braverman_Jasmine Trussell_sibs" [shape=none width=0 height=0 label=""]
 
-  "Crosby Braverman_Jasmine Trussell_sibs" -- "Jabbar Trussell"
+  "Crosby Braverman_Jasmine Trussell_sibs" -- "Jabbar Trussell" [dir=forward arrowType=open arrowsize=0.5]
 
   subgraph {
     rank=same
-    "Jabbar Trussell"
+    "Jabbar Trussell" [label="Jabbar Trussell" tooltip="Jabbar Trussell"]
   }
 
 }
