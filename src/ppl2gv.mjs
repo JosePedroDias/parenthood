@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { processPplString } from './core.mjs';
+import { processPplString } from './to-graphviz.mjs';
 
 export function processPplFile(filenameIn, filenameOut) {
   const s = readFileSync(filenameIn).toString();

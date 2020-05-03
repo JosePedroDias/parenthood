@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>parenthood cytoscape demo</title>
+
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/klayjs@0.4.1/klay.js"></script>
+    <script src="https://cytoscape.org/cytoscape.js-klay/cytoscape-klay.js"></script>
+
+    <style>
+      textarea {
+        width: 33vw;
+        height: 100vh;
+      }
+      .graph-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 66vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea spellcheck="false">
+Zeek + Camille
+  Adam
+  Sarah
+  Julia
+  Crosby
+
+Adam + Kristina
+  Haddie
+  Max
+
+Sarah +/ Seth
+  Amber
+  Drew
+
+Julia + Joel
+  Sydney
+
+Crosby .. Jasmine
+  Jabbar
+</textarea
+    >
+    <div class="graph-container"></div>
+
+    <script type="module">
+      import { processPplString } from '../../src/to-cytoscape.mjs';
+
+      const taEl = document.querySelector('textarea');
+      const graphContainerEl = document.querySelector('.graph-container');
+
+      // https://js.cytoscape.org/#core
+      // https://js.cytoscape.org/#style
+      // https://github.com/cytoscape/cytoscape.js-klay
+
+      const cy = cytoscape({
+        container: graphContainerEl,
+        style: [
+          {
+            selector: 'node',
+            css: {
+              label: 'data(label)',
+              'text-valign': 'center',
+              'text-halign': 'center',
+              'background-color': '#eee',
+              'font-family': 'helvetica',
+              'font-size': 8,
+              width: 'label',
+              height: 'label',
+              padding: 4,
+              shape: 'rectangle',
+            },
+          },
+          {
+            selector: 'edge',
+            css: {
+              label: 'data(label)',
+              'curve-style': 'bezier',
+              'arrow-scale': 0.5,
+              width: 0.5,
+              'line-color': 'data(color)',
+              'target-arrow-shape': 'data(arrowShape)',
+              'target-arrow-color': 'data(color)',
+              'font-family': 'helvetica',
+              'font-size': 5,
+            },
+          },
+        ],
+      });
+
+      function update() {
+        const src = taEl.value;
+
+        try {
+          const elements = processPplString(src);
+
+          const prevCollection = cy.elements('node');
+          cy.remove(prevCollection);
+
+          cy.add(elements);
+
+          cy.layout({
+            name: 'klay',
+          }).run();
+        } catch (ex) {
+          console.error(ex);
+          taEl.style.color = 'red';
+          return;
+        }
+        taEl.style.color = '';
+      }
+
+      taEl.addEventListener('change', update);
+      update();
+    </script>
+  </body>
+</html>

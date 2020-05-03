@@ -36,13 +36,13 @@ Crosby .. Jasmine
 
 ### Its output
 
-This would output this result graphviz data: [parenthood.gv](public/parenthood.gv).
+This would output this result graphviz data: [parenthood.gv](public/graphviz/outputs/parenthood.gv).
 
 And using graphviz you would get:
 
 ![generated png diagram](public/parenthood.gv.png)  
-[svg diagram](public/parenthood.gv.svg),
-[pdf diagram](public/parenthood.gv.pdf) ...
+[svg diagram](public/graphviz/outputs/parenthood.gv.svg),
+[pdf diagram](public/graphviz/outputs/parenthood.gv.pdf) ...
 
 ## The PPL format
 
@@ -78,43 +78,10 @@ If you mention the same person with different names you're spawning a different 
 or  
 `yarn add parenthood`
 
-## using the script to generate graphviz file
+depending on what you want to do you may continue to:
 
-The Javascript module converts a ppl file to a graphviz dot compatible file,
-able to render in any rendered such as [graphviz](http://graphviz.org/), [viz.js](http://viz-js.com/), etc.
-
-Run it like this:
-
-`ppl2gv parenthood.ppl`
-
-which will output `parenthood.gv`.  
-provide the outfile as an additional argument if desired
-
-## generating diagrams
-
-### in the browser
-
-Check the [demo](https://josepedrodias.github.io/parenthood/public/demo.html).
-You need to focus outside the text area to refresh the diagram.  
-Using [viz.js](http://viz-js.com/) here.
-Think of this as a hack to allow you to experiment, nothing fancy...
-
-### in the command line
-
-#### setup grapviz
-
-`brew install graphviz` (in mac)  
-`apt install graphviz` (in many linuxes)  
-`choco install graphviz` (in windows)
-
-#### generate diagram in the format you prefer
-
-`dot parenthood.gv -Tpng -O` (for png)  
-`dot parenthood.gv -Tsvg -O` (for svg)  
-`dot parenthood.gv -Tpdf -O` (for pdf)
-
-`dot` uses ranks in orthogonal dimensions.  
-try `neato` and `twopi` engines as well. the results are less predictable but nodes tend to distribute better.
+- [integration with Graphviz](WITH_GRAPHVIZ.md)
+- [integration with Cytoscape](WITH_CYTOSCAPE.md)
 
 ## technical remarks
 
@@ -142,12 +109,5 @@ I have no affiliation to the series and don't intend to spoil. 🙏
 
 ## reference
 
-- [viz.js](http://viz-js.com/), one of several graphviz implementations for js
-- graphviz spec
-  - [lang](https://www.graphviz.org/doc/info/lang.html)
-  - [attributes](https://www.graphviz.org/doc/info/attrs.html)
-  - [shapes](https://www.graphviz.org/doc/info/shapes.html)
-  - [command-line usage](https://www.graphviz.org/doc/info/command.html)
-  - [neato guide](https://graphviz.gitlab.io/_pages/pdf/neatoguide.pdf)
 - [jest docs](https://jestjs.io/docs/en/getting-started.html)
 - [package.json spec](https://docs.npmjs.com/files/package.json)

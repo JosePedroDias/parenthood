@@ -2,7 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>parenthood demo</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>parenthood graphviz demo</title>
+
     <style>
       .left-pane {
         width: 33vw;
@@ -60,7 +67,7 @@ Crosby .. Jasmine
     </div>
 
     <script type="module">
-      import { processPplString } from '../src/core.mjs';
+      import { processPplString } from '../../src/to-graphviz.mjs';
 
       const parser = new DOMParser();
       const taEl = document.querySelector('textarea');

@@ -3,7 +3,7 @@
   "description": "a way to organize relationships in plots via a simple text format (ppl). generates graphviz dot output.",
   "homepage": "https://github.com/josepedrodias/parenthood",
   "license": "CC-BY-4.0",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "José Pedro Dias <jose.pedro.dias@gmail.com>",
   "main": "core.mjs",
   "type": "module",
@@ -12,9 +12,9 @@
   },
   "scripts": {
     "test": "jest",
-    "run-sample-bin": "bin/ppl2gv public/parenthood.ppl public/parenthood.gv && bin/ppl2gv public/parenthood2.ppl public/parenthood2.gv",
-    "run-sample-dot": "dot public/parenthood.gv -Tpng -O && dot public/parenthood.gv -Tsvg -O && dot public/parenthood.gv -Tpdf -O && dot public/parenthood2.gv -Tpng -O && dot public/parenthood2.gv -Tsvg -O && dot public/parenthood2.gv -Tpdf -O",
-    "run-samples": "yarn run-sample-bin && yarn run-sample-dot && open public/parenthood2.gv.pdf"
+    "run-sample-bin": "bin/ppl2gv examples/parenthood.ppl public/graphviz/outputs/parenthood.gv && bin/ppl2gv examples/parenthood2.ppl public//graphviz/outputs/parenthood2.gv",
+    "run-sample-dot": "dot public/graphviz/outputs/parenthood.gv -Tpng -opublic/graphviz/outputs/parenthood.gv.png && dot public/graphviz/outputs/parenthood.gv -Tsvg -opublic/graphviz/outputs/parenthood.gv.svg && dot public/graphviz/outputs/parenthood.gv -Tpdf -opublic/graphviz/outputs/parenthood.gv.pdf && dot public/graphviz/outputs/parenthood2.gv -Tpng -opublic/graphviz/outputs/parenthood2.gv.png && dot public/graphviz/outputs/parenthood2.gv -Tsvg -opublic/graphviz/outputs/parenthood2.gv.svg && dot public/graphviz/outputs/parenthood2.gv -Tpdf -opublic/graphviz/outputs/parenthood2.gv.pdf",
+    "run-samples": "yarn run-sample-bin && yarn run-sample-dot && open public/graphviz/outputs/parenthood2.gv.pdf"
   },
   "repository": {
     "type": "git",

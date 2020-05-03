@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processPplString processes 1 has_been_with relationship w/ 2 siblings 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "id": "n0",
+      "label": "p1",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
+      "id": "n1",
+      "label": "p2",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "none",
+      "color": "red",
+      "id": "e0",
+      "label": "has_been_with",
+      "source": "n0",
+      "target": "n1",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "id": "n2",
+      "label": "s1",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "vee",
+      "color": "green",
+      "id": "e1",
+      "label": "parent_of",
+      "source": "n0",
+      "target": "n2",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "vee",
+      "color": "green",
+      "id": "e2",
+      "label": "parent_of",
+      "source": "n1",
+      "target": "n2",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "id": "n3",
+      "label": "s2",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "vee",
+      "color": "green",
+      "id": "e3",
+      "label": "parent_of",
+      "source": "n0",
+      "target": "n3",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "vee",
+      "color": "green",
+      "id": "e4",
+      "label": "parent_of",
+      "source": "n1",
+      "target": "n3",
+    },
+    "group": "edges",
+  },
+]
+`;
