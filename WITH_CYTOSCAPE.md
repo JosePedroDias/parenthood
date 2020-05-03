@@ -13,4 +13,4 @@ This is integration is brand new and just a draft.
 ## reference
 
 - [cytoscape docs](https://js.cytoscape.org)
-- [webcola](https://ialab.it.monash.edu/webcola/ (not yet in use)
+- [webcola](https://ialab.it.monash.edu/webcola/) (not yet in use)

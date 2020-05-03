@@ -40,9 +40,11 @@ This would output this result graphviz data: [parenthood.gv](public/graphviz/out
 
 And using graphviz you would get:
 
-![generated png diagram](public/parenthood.gv.png)  
+![generated png diagram](public/graphviz/outputs/parenthood.gv.png)  
 [svg diagram](public/graphviz/outputs/parenthood.gv.svg),
 [pdf diagram](public/graphviz/outputs/parenthood.gv.pdf) ...
+
+You can find an integration with Graphviz in the below and a [demo of it running](https://josepedrodias.github.io/parenthood/public/graphviz/demo.html).
 
 ## The PPL format
 
