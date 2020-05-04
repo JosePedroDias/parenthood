@@ -35,22 +35,39 @@ export function relationshipsToCytoscape(relationships) {
     const aNodeId = processNode(a, { label: a });
     const bNodeId = processNode(b, { label: b });
 
-    processEdge(aNodeId, bNodeId, {
+    const aAndBNodeId = processNode(`${a}_and_${b}`, { label: '.' });
+    const aAndBSibsNodeId = processNode(`${a}_and_${b}_sibs`, { label: '.' });
+
+    const relColor =
+      kind === 'almost_with'
+        ? 'cyan'
+        : kind === 'has_been_with'
+        ? 'red'
+        : 'black';
+
+    processEdge(aNodeId, aAndBNodeId, {
       label: kind,
-      color: 'red',
+      color: relColor,
+      arrowShape: 'none',
+    });
+
+    processEdge(bNodeId, aAndBNodeId, {
+      label: kind,
+      color: relColor,
+      arrowShape: 'none',
+    });
+
+    processEdge(aAndBNodeId, aAndBSibsNodeId, {
+      label: ' ',
+      color: 'black',
       arrowShape: 'none',
     });
 
     for (const sib of siblings) {
       const sNodeId = processNode(sib, { label: sib });
 
-      processEdge(aNodeId, sNodeId, {
-        label: 'parent_of',
-        color: 'green',
-        arrowShape: 'vee',
-      });
-      processEdge(bNodeId, sNodeId, {
-        label: 'parent_of',
+      processEdge(aAndBSibsNodeId, sNodeId, {
+        label: 'child_of',
         color: 'green',
         arrowShape: 'vee',
       });

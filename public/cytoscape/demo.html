@@ -103,6 +103,7 @@ Crosby .. Jasmine
 
         try {
           const elements = processPplString(src);
+          console.log(elements);
 
           const prevCollection = cy.elements('node');
           cy.remove(prevCollection);

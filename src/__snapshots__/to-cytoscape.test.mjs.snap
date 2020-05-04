@@ -18,18 +18,54 @@ Array [
   },
   Object {
     "data": Object {
+      "id": "n2",
+      "label": ".",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
+      "id": "n3",
+      "label": ".",
+    },
+    "group": "nodes",
+  },
+  Object {
+    "data": Object {
       "arrowShape": "none",
       "color": "red",
       "id": "e0",
       "label": "has_been_with",
       "source": "n0",
-      "target": "n1",
+      "target": "n2",
     },
     "group": "edges",
   },
   Object {
     "data": Object {
-      "id": "n2",
+      "arrowShape": "none",
+      "color": "red",
+      "id": "e1",
+      "label": "has_been_with",
+      "source": "n1",
+      "target": "n2",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "arrowShape": "none",
+      "color": "black",
+      "id": "e2",
+      "label": " ",
+      "source": "n2",
+      "target": "n3",
+    },
+    "group": "edges",
+  },
+  Object {
+    "data": Object {
+      "id": "n4",
       "label": "s1",
     },
     "group": "nodes",
@@ -38,27 +74,16 @@ Array [
     "data": Object {
       "arrowShape": "vee",
       "color": "green",
-      "id": "e1",
-      "label": "parent_of",
-      "source": "n0",
-      "target": "n2",
+      "id": "e3",
+      "label": "child_of",
+      "source": "n3",
+      "target": "n4",
     },
     "group": "edges",
   },
   Object {
     "data": Object {
-      "arrowShape": "vee",
-      "color": "green",
-      "id": "e2",
-      "label": "parent_of",
-      "source": "n1",
-      "target": "n2",
-    },
-    "group": "edges",
-  },
-  Object {
-    "data": Object {
-      "id": "n3",
+      "id": "n5",
       "label": "s2",
     },
     "group": "nodes",
@@ -67,21 +92,10 @@ Array [
     "data": Object {
       "arrowShape": "vee",
       "color": "green",
-      "id": "e3",
-      "label": "parent_of",
-      "source": "n0",
-      "target": "n3",
-    },
-    "group": "edges",
-  },
-  Object {
-    "data": Object {
-      "arrowShape": "vee",
-      "color": "green",
       "id": "e4",
-      "label": "parent_of",
-      "source": "n1",
-      "target": "n3",
+      "label": "child_of",
+      "source": "n3",
+      "target": "n5",
     },
     "group": "edges",
   },
