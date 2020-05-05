@@ -1,16 +1,18 @@
 # With Cytoscape
 
-In order to explore more dynamic scenarios I'm attempting to integrate with [Cytoscape](https://js.cytoscape.org) as well.
-This will be more relevant:
+In order to explore more dynamic scenarios I'm integrating with [Cytoscape](https://js.cytoscape.org) as well.
 
-1. cytoscape allows manipulation and scripting over time (not yet done)
-2. to set additional constraints via [cola](https://ialab.it.monash.edu/webcola/) layout (not yet done)
+Using the [KLay algorithm](https://github.com/kieler/klayjs) via it's [integration lib](https://github.com/cytoscape/cytoscape.js-klay).
+
+## TODO
+
+- cytoscape allows manipulation and scripting over time (not yet in use)
 
 Check the [demo](https://josepedrodias.github.io/parenthood/public/cytoscape/demo.html).
-
-This is integration is brand new and just a draft.
 
 ## reference
 
 - [cytoscape docs](https://js.cytoscape.org)
-- [webcola](https://ialab.it.monash.edu/webcola/) (not yet in use)
+- [cythoscape js klay](https://github.com/cytoscape/cytoscape.js-klay)
+
+<!-- - [webcola](https://ialab.it.monash.edu/webcola/) (not yet in use) -->

@@ -44,7 +44,9 @@ And using graphviz you would get:
 [svg diagram](public/graphviz/outputs/parenthood.gv.svg),
 [pdf diagram](public/graphviz/outputs/parenthood.gv.pdf) ...
 
-You can find an integration with Graphviz in the below and a [demo of it running](https://josepedrodias.github.io/parenthood/public/graphviz/demo.html).
+It integrates with **Graphviz** as seen in this [demo](https://josepedrodias.github.io/parenthood/public/graphviz/demo.html).  
+It also integrates with **Cytoscape** as seen in this [demo](https://josepedrodias.github.io/parenthood/public/cytoscape/demo.html).  
+You can find more details about these integrations below.
 
 ## The PPL format
 

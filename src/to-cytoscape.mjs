@@ -36,7 +36,6 @@ export function relationshipsToCytoscape(relationships) {
     const bNodeId = processNode(b, { label: b });
 
     const aAndBNodeId = processNode(`${a}_and_${b}`, { label: '.' });
-    const aAndBSibsNodeId = processNode(`${a}_and_${b}_sibs`, { label: '.' });
 
     const relColor =
       kind === 'almost_with'
@@ -57,20 +56,24 @@ export function relationshipsToCytoscape(relationships) {
       arrowShape: 'none',
     });
 
-    processEdge(aAndBNodeId, aAndBSibsNodeId, {
-      label: ' ',
-      color: 'black',
-      arrowShape: 'none',
-    });
+    if (siblings && siblings.length > 0) {
+      const aAndBSibsNodeId = processNode(`${a}_and_${b}_sibs`, { label: '.' });
 
-    for (const sib of siblings) {
-      const sNodeId = processNode(sib, { label: sib });
-
-      processEdge(aAndBSibsNodeId, sNodeId, {
-        label: 'child_of',
-        color: 'green',
-        arrowShape: 'vee',
+      processEdge(aAndBNodeId, aAndBSibsNodeId, {
+        label: ' ',
+        color: 'black',
+        arrowShape: 'none',
       });
+
+      for (const sib of siblings) {
+        const sNodeId = processNode(sib, { label: sib });
+
+        processEdge(aAndBSibsNodeId, sNodeId, {
+          label: 'child_of',
+          color: 'green',
+          arrowShape: 'vee',
+        });
+      }
     }
   }
 
